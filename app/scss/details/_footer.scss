@@ -1,0 +1,104 @@
+@function vw($px-vw, $base-vw: 1920px) {
+  @return ($px-vw * 100vw) / $base-vw
+}
+
+.footer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  height: 100%;
+  padding: 100px 0;
+
+  &-cont {
+
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    writing-mode: vertical-rl;
+    height: 100%;
+    transform: rotate(180deg);
+    padding: 0 24px 0 22px;
+
+    ul {
+      gap: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      li {
+        display: flex;
+
+        a {
+          width: 25px;
+          height: 25px;
+          mask-image: var(--im);
+          mask-size: 100% 100%;
+          mask-position: center;
+          mask-repeat: no-repeat;
+          background: #fff;
+          transition: all 0.3s ease-out;
+          transform: rotate(180deg);
+
+          &:hover {
+            background: $main-color;
+          }
+        }
+      }
+    }
+
+    &::before {
+      width: 2px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #fff;
+      display: inline-block;
+      content: '';
+    }
+
+    a {
+
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      transition: all 0.3s ease-out;
+
+      &.write {
+        &::after {
+          width: 17px;
+          height: 17px;
+          display: inline-block;
+          content: '';
+          mask-image: url("../img/arr-mail.svg");
+          mask-size: 100% 100%;
+          mask-position: center;
+          mask-repeat: no-repeat;
+          background: #fff;
+          transition: all 0.3s ease-out;
+          transform: rotate(90deg);
+        }
+      }
+
+      &:hover {
+        color: $main-color;
+
+        &.write {
+          &::after {
+            background: $main-color;
+          }
+        }
+      }
+
+    }
+  }
+}
+

@@ -1,0 +1,225 @@
+@function vw($px-vw, $base-vw: 1920px) {
+  @return ($px-vw * 100vw) / $base-vw
+}
+
+$main-font: "moula", sans-serif;
+$second-font: "Nathan", sans-serif;
+
+
+$main-color: #E53212;
+$bg: #EFECE8;
+$blue: #1A2A56;
+$hero: #D6D0B3;
+$darkblue: #00468b;
+$blueop: rgba(175, 215, 255, 0.5);
+$blackgreen: #2F6122;
+$lightgreen: #A9CF45;
+$grey: #717171;
+$border: #B18BFF;
+$white: #fff;
+$black: #000;
+$size: 16px;
+
+@mixin overFlow {
+  overflow: hidden;
+  backface-visibility: hidden;
+  appearance: none;
+}
+
+@mixin flexStart {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexCenterH {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@mixin flexCenterV {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin rtl-margin($property, $ltrproperty, $value, $value2) {
+  margin-#{$property}: $value;
+  margin-#{$ltrproperty}: $value2;
+
+  [dir=rtl] & {
+    margin-#{$ltrproperty}: $value;
+    margin-#{$property}: $value2;
+  }
+}
+
+@mixin rtl-padding($property, $ltrproperty, $value, $value2) {
+  padding-#{$property}: $value;
+  padding-#{$ltrproperty}: $value2;
+
+  [dir=rtl] & {
+    padding-#{$ltrproperty}: $value;
+    padding-#{$property}: $value2;
+  }
+}
+
+@mixin textAlign($property, $property2) {
+  text-align: $property;
+
+  [dir=rtl] & {
+    text-align: $property2;
+  }
+}
+
+//fonts
+
+@mixin defaultFont {
+  font-style: normal;
+  font-weight: normal;
+  font-size: vw($size);
+  line-height: 1.2;
+  color: #fff;
+}
+
+@mixin textFont {
+  font-style: normal;
+  font-weight: 400;
+  font-size: vw(23px);
+  line-height: 1.39;
+  color: $main-color;
+}
+
+@mixin title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: vw(82px);
+  line-height: 1.2272;
+  color: #fff;
+  strong {
+    font-weight: normal;
+    color: $main-color;
+  }
+
+}
+
+@mixin subtitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.125;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+body {
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: $size;
+  line-height: 170%;
+  //text-transform: capitalize;
+  color: $black;
+
+
+}
+
+.btn {
+  outline: none;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+  appearance: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  /* identical to box height */
+  text-transform: uppercase;
+  gap: 20px;
+
+  color: #000;
+  transition: all 0.3s ease-in-out;
+  border: none;
+
+  &.btn--white {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      width: 24px;
+      height: 24px;
+      mask-image: url("../img/arr-mail.svg");
+      mask-size: 100% 100%;
+      mask-position: center;
+      mask-repeat: no-repeat;
+      background: #000;
+      display: inline-block;
+      content: '';
+    }
+
+    &:hover {
+      color: #fff;
+      background: #000;
+
+      &::after {
+        background: #fff;
+      }
+    }
+  }
+
+  &.btn--trans {
+    background: rgba(255, 255, 255, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #fff;
+    color: #fff;
+
+    &::after {
+      width: 24px;
+      height: 24px;
+      mask-image: url("../img/arr-mail.svg");
+      mask-size: 100% 100%;
+      mask-position: center;
+      mask-repeat: no-repeat;
+      background: #fff;
+      display: inline-block;
+      content: '';
+    }
+
+    &:hover {
+      color: #000;
+      background: #fff;
+      border-color: #fff;
+
+      &::after{
+        background: #000;
+      }
+    }
+  }
+}
+
+//done px
+
+
+.modal-window {
+  display: none;
+}
