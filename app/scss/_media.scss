@@ -32,7 +32,8 @@
     }
   }
   .sec-text p {
-    font-size: 34px;
+    font-size: 32px;
+    max-width: 420px;
   }
   .sub-title {
     font-size: 38px;
@@ -55,7 +56,7 @@
   }
 
   .menu-wrap .men li a {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .preloader-block .tx {
@@ -163,6 +164,9 @@
 }
 
 @media screen and (max-width: 1300px) {
+  .fixed-logo .log-bot .im {
+    width: 100%;
+  }
   .section-text {
     max-width: 390px;
   }
@@ -441,10 +445,11 @@
     padding-bottom: vw(60px);
   }
   .button-opener {
+    display: none;
     border: 1px solid #fff;
     border-radius:vw(4px);
     margin-top: vw(12px);
-    display: flex;
+    //display: flex;
     align-items: center;
     justify-content: center;
     padding: 0px vw(15px) vw(9px);
@@ -462,14 +467,14 @@
   }
 
   .txt {
-    max-height: vw(230px);
+    //max-height: vw(230px);
     position: relative;
     overflow: hidden;
     transition: all 0.6s ease-out;
 
     &::after {
       display: inline-block;
-      content: '';
+      //content: '';
       position: absolute;
       bottom: 0;
       left: 0;
@@ -524,7 +529,7 @@
     padding: vw(80px) 0 vw(40px);
   }
   .txt ul li::before {
-    top: vw(9px);
+    top: vw(7px);
   }
   .txt ul li {
     margin-bottom: vw(6px);
@@ -534,7 +539,11 @@
     }
   }
   .scrolldown {
-    display: none;
+    //display: none;
+    bottom: vw(10px);
+    width: vw(35px);
+    height: vw(50px);
+    pointer-events: auto;
   }
   .section-cont {
     height: auto;
@@ -564,11 +573,11 @@
         }
 
         h2, h3 {
-          font-size: vw(18px);
+          font-size: vw(16px);
         }
 
         p, li {
-          font-size: vw(16px);
+          font-size: vw(13px);
         }
 
         ul {
