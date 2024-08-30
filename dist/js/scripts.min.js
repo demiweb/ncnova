@@ -69,7 +69,22 @@ function burgerControl() {
 
 burgerControl();
 
+let sectionText = [...document.querySelectorAll('.section-text')];
 
+function controlSectionText() {
+    if (sectionText.length) {
+        sectionText.forEach((block) => {
+            let newBtn = document.createElement('div');
+            newBtn.addEventListener('click', () => {
+               block.classList.toggle('open-text');
+            });
+            newBtn.classList.add('button-opener');
+            block.appendChild(newBtn);
+
+        })
+    }
+}
+controlSectionText();
 var mobile = $(window).width() < 768;
 
 //scroll
@@ -246,3 +261,23 @@ window.onload = () => {
 
 
 };
+jQuery(document).ready(function ($) {
+    $('.input-wrap').each(function () {
+        var $wrap = $(this);
+        var $wrapperSpan = $wrap.find('.wpcf7-form-control-wrap'); // Locate the wrapper span
+        var $input = $wrap.find('input'); // Find the input
+        var $textarea = $wrap.find('textarea'); // Find the input
+        var $textSpan = $wrapperSpan.find('span'); // Find the text span within the wrapper
+
+        if ($wrapperSpan.length) {
+            // Remove the wrapper span
+            $wrapperSpan.remove();
+
+            // Append input and text span in the desired order
+
+            // $wrap.append($textSpan); // Append the text span after the input
+            $wrap.prepend($input); // Append the input first
+            $wrap.prepend($textarea); // Append the input first
+        }
+    });
+});
