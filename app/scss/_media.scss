@@ -36,11 +36,11 @@
     max-width: 420px;
   }
   .sub-title {
-    font-size: 38px;
+    font-size: 30px;
   }
   .clima-block__wrap {
     padding-top: 120px;
-    padding-bottom: 170px;
+    padding-bottom: 130px;
   }
   .clima-block {
     max-width: 1320px;
@@ -69,7 +69,7 @@
   .header-menu {
     padding: 60px 0;
     z-index: 1;
-    background: $blue;
+
   }
   .header-cont {
     padding: 30px 100px;
@@ -80,12 +80,13 @@
   }
   .section-text {
     max-width: 420px;
+
   }
 
   .txt {
 
     h2, h3 {
-      font-size: 18px;
+      font-size: 30px;
     }
 
     p, li {
@@ -96,10 +97,10 @@
   .sec-text {
     max-width: 360px;
   }
-  body .fullpage-main .section:nth-child(1) .section-text, body .fullpage-main .section:nth-child(3) .section-text {
+  body .fullpage-main .section:nth-child(2) .section-text, body .fullpage-main .section:nth-child(4) .section-text {
     left: 23%;
   }
-  body.loaded .fullpage-main .section.active:nth-child(2) .section-text, body.loaded .fullpage-main .section.active:nth-child(4) .section-text {
+  body.loaded .fullpage-main .section.active:nth-child(1) .section-text, body.loaded .fullpage-main .section.active:nth-child(3) .section-text {
     left: 23%;
   }
   .clima-block {
@@ -136,13 +137,13 @@
     }
   }
   .txt h2, .txt h3 {
-    font-size: 16px;
+    font-size: 24px;
   }
   .clima-center .sub-title {
     max-width: 420px;
   }
   .sub-title {
-    font-size: 32px;
+    font-size: 30px;
   }
   .clima-block__wrap {
     padding: 90px 0 90px;
@@ -229,7 +230,7 @@
     font-size: 14px;
   }
   .sub-title {
-    font-size: 26px;
+    font-size: 24px;
   }
 }
 
@@ -284,8 +285,15 @@
   .fixed-logo .log-bot .im {
     width: 130%;
   }
+  .log-bot {
+    transition: all 0.3s ease-out;
+  }
   body.loaded .fixed-logo {
     .log {
+      opacity: 0;
+    }
+
+    .log-bot {
       opacity: 0;
     }
   }
@@ -327,7 +335,7 @@
     padding-top: vw(60px);
     padding-bottom: vw(100px);
     width: 100%;
-
+    background: $blue;
   }
   body.loaded .header-menu, body .header-menu {
     transform: translate(101%, 0);
@@ -343,20 +351,26 @@
       }
     }
   }
-
+  .header-cont .min-log {
+    display: flex;
+  }
   .menu-wrap {
     width: 100%;
     padding: 0 vw(20px);
     border: none;
   }
   .header {
-    background: $blue;
+    background: rgba(255, 255, 255, 0);
     border-bottom: 1px solid #fff;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 4;
+
+    &.active {
+      background: $blue;
+    }
   }
   .fixed-logo {
     z-index: 6;
@@ -441,13 +455,14 @@
     justify-content: flex-start;
   }
   .section {
-    min-height: calc(100vh - var(--headerheight));
+    //min-height: calc(100vh - var(--headerheight));
+    min-height: 100vh;
     padding-bottom: vw(60px);
   }
   .button-opener {
     display: none;
     border: 1px solid #fff;
-    border-radius:vw(4px);
+    border-radius: vw(4px);
     margin-top: vw(12px);
     //display: flex;
     align-items: center;
@@ -488,13 +503,16 @@
     &.open-text {
       .txt {
         max-height: vw(700px);
+
         &::after {
           height: 0;
         }
       }
+
       .button-opener {
         padding-top: vw(2px);
         padding-bottom: vw(7px);
+
         &::after {
           content: '-';
         }
@@ -526,7 +544,8 @@
   .section {
     position: relative;
     width: 100%;
-    padding: vw(80px) 0 vw(40px);
+    //padding: vw(80px) 0 vw(40px);
+    padding: 0;
   }
   .txt ul li::before {
     top: vw(7px);
@@ -565,7 +584,8 @@
       padding: 0 vw(20px);
       order: 2;
       transform: none;
-      margin-top: vw(10px);
+      margin-top: auto;
+      padding-bottom: vw(40px);
 
       .txt {
         p {
@@ -573,11 +593,11 @@
         }
 
         h2, h3 {
-          font-size: vw(16px);
+          font-size: vw(24px);
         }
 
         p, li {
-          font-size: vw(13px);
+          font-size: vw(16px);
         }
 
         ul {
@@ -586,14 +606,27 @@
       }
     }
 
+    .section.active:nth-child(1) .section-text {
+      padding-bottom: vw(60px);
+    }
+
     .section-bg {
       width: 100%;
       position: absolute;
-      height: vw(200px);
+      //80px
+      height: calc(100% + 20.5128vw + 10.2564102564vw);
       top: vw(-80px);
       left: 0;
       z-index: 1;
 
+    }
+
+    .section {
+      overflow: hidden;
+    }
+
+    .txt h2, .txt h3 {
+      display: none;
     }
 
     .sec-text {
@@ -610,10 +643,14 @@
       margin-bottom: vw(20px);
       margin-top: vw(-80px);
       z-index: 2;
+      font-weight: bold;
 
       p {
+        font-family: $second-font;
+        text-transform: uppercase;
         font-size: vw(24px);
         text-align: left;
+        font-weight: 700;
 
         strong {
           border-bottom: 1px solid $main-color;
@@ -783,13 +820,36 @@
     transform: translate(-50%, 0);
   }
   .sub-title {
-    font-size: vw(26px);
+    font-size: vw(24px);
   }
   .clima-center .sub-title {
     max-width: 100%;
   }
   .clima-left .sub-title {
     max-width: 100%;
+  }
+  .menu-wrap .men li a.active, .menu-wrap .men li a:hover {
+    color: $main-color;
+  }
+  main {
+    padding-top: 0 !important;
+  }
+  .section.red-block {
+    padding-top: vw(80px);
+    padding-bottom: vw(40px);
+  }
+  .section-cont {
+    //80px
+    padding-top: calc(var(--headerheight) + 20.5128vw);
+    padding-bottom: vw(40px);
+    height: 100dvh;
+    position: static;
+    transition: all 0.3s ease-out;
+
+  }
+  .section-cont .section-bg {
+    top: 0;
+    height: 100%;
   }
 }
 

@@ -2,13 +2,13 @@
   @return ($px-vw * 100vw) / $base-vw
 }
 
-$main-font: "moula", sans-serif;
-$second-font: "Nathan", sans-serif;
+$main-font: "Montserrat", sans-serif;
+$second-font: "Oswald", sans-serif;
 
 
-$main-color: #E53212;
+$main-color: #E1C59A;
 $bg: #EFECE8;
-$blue: #1A2A56;
+$blue: #46546E;
 $hero: #D6D0B3;
 $darkblue: #00468b;
 $blueop: rgba(175, 215, 255, 0.5);
@@ -90,13 +90,14 @@ $size: 16px;
 
 @mixin textFont {
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: vw(23px);
   line-height: 1.39;
   color: $main-color;
 }
 
 @mixin title {
+  font-family: $second-font;
   font-style: normal;
   font-weight: 600;
   font-size: vw(82px);
@@ -110,18 +111,19 @@ $size: 16px;
 }
 
 @mixin subtitle {
+  font-family: $second-font;
   font-style: normal;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 1.125;
-  color: #fff;
+  color: $main-color;
   text-transform: uppercase;
 }
 
 body {
 
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: $size;
   line-height: 170%;
   //text-transform: capitalize;
@@ -146,7 +148,7 @@ body {
 
 
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   line-height: 18px;
   /* identical to box height */

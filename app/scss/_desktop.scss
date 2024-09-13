@@ -66,7 +66,7 @@ body {
     p {
       flex-shrink: 0;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 300;
       font-size: 24px;
       line-height: 1;
       text-align: right;
@@ -106,7 +106,7 @@ body {
   background: $blue;
 
   > div {
-    width: 50%;
+    width: 100%;
     height: 100%;
     @include overFlow;
     position: absolute;
@@ -118,12 +118,12 @@ body {
       top: 0;
       left: 0;
       background: #000;
-      opacity: 0.7;
+      opacity: 0.1;
       display: inline-block;
       content: '';
     }
 
-    video {
+    video, img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -154,6 +154,7 @@ body {
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 480px;
+  display: none;
 
   p {
     width: 100%;
@@ -182,9 +183,10 @@ body {
   }
 
   h2, h3 {
+    font-family: $second-font;
     font-style: normal;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 40px;
     line-height: 1.1363;
     text-transform: uppercase;
     color: #FFFFFF;
@@ -193,7 +195,7 @@ body {
 
   p, li {
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 16px;
     line-height: 1.125;
     color: #FFFFFF;
@@ -242,7 +244,7 @@ body {
       position: absolute;
       transition: all 0.3s ease-out;
       top: 0;
-      background: $main-color;
+      background: #1F2B42;
       display: inline-block;
       content: '';
       left: 50%;
@@ -265,6 +267,7 @@ body {
   justify-content: center;
   z-index: 3;
 }
+
 
 .clima-block__wrap {
   width: 100%;
@@ -299,7 +302,7 @@ body {
   margin-top: auto;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -391,6 +394,7 @@ body {
       }
 
       span {
+        font-family: $second-font;
         font-style: normal;
         font-weight: 700;
         font-size: 22px;
@@ -404,7 +408,7 @@ body {
       a, p {
 
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 16px;
         line-height: 1;
         color: #FFFFFF;
@@ -429,7 +433,7 @@ body {
 
   > span {
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 16px;
     line-height: 1.125;
     color: #FFFFFF;
@@ -447,13 +451,14 @@ body {
   justify-content: flex-start;
 
   > p {
+    font-family: $second-font;
     width: 100%;
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 27px;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: $main-color;
     display: inline-block;
     margin-bottom: 14px;
   }
@@ -491,7 +496,7 @@ body {
       top: 5px;
       right: 0;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 300;
       font-size: 16px;
       line-height: 1;
       text-align: right;
@@ -515,7 +520,7 @@ body {
     background: rgba(255, 255, 255, 0);
 
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 1em;
     line-height: 1.125;
     text-transform: uppercase;
@@ -541,7 +546,7 @@ body {
     position: absolute;
     width: 100%;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 1em;
     line-height: 1.125;
     text-transform: uppercase;
@@ -669,7 +674,11 @@ body {
         transition: all 0.4s ease-out;
         transition-delay: 0.3s;
         pointer-events: none;
-
+        &:not(.red-block) {
+          &::before {
+            content: none;
+          }
+        }
         .clima-block {
           opacity: 0;
           transition: all 0.4s ease-out;
@@ -690,9 +699,9 @@ body {
           }
         }
 
-        &:nth-child(1), &:nth-child(3) {
+        &:nth-child(2), &:nth-child(4) {
           .section-bg {
-            left: 50%;
+            left: 0;
             transition: all 0.4s ease-out;
             transition-delay: 0.3s;
           }
@@ -710,7 +719,7 @@ body {
           }
         }
 
-        &:nth-child(2), &:nth-child(4) {
+        &:nth-child(1), &:nth-child(3) {
           .section-bg {
             left: 0;
             transition-delay: 0.3s;
@@ -740,7 +749,7 @@ body {
             transition-delay: 0.3s;
             pointer-events: auto;
 
-            &:nth-child(1), &:nth-child(3) {
+            &:nth-child(2), &:nth-child(4) {
               .section-bg {
                 left: 0;
                 transition-delay: 0.3s;
@@ -758,14 +767,14 @@ body {
               }
             }
 
-            &:nth-child(2), &:nth-child(4) {
+            &:nth-child(1), &:nth-child(3) {
               .section-text {
                 left: 22.5%;
                 transition-delay: 0.3s;
               }
 
               .section-bg {
-                left: 50%;
+                left: 0;
                 transition-delay: 0.3s;
               }
 
@@ -972,7 +981,13 @@ body {
     }
   }
 }
-body.fp-viewing-full-pb-6 {
+body.fp-viewing-full-pb-5 {
+  .scrolldown {
+    opacity: 0;
+
+  }
+}
+body.fp-viewing-full-pb-4 {
   .scrolldown {
     opacity: 0;
 
@@ -987,5 +1002,12 @@ body.fp-viewing-full-pb-6 {
   }
   100% {
     transform: translate(0, 0);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  body.loaded .fixed-logo {
+    left: 20%;
+    top: -40%;
   }
 }
