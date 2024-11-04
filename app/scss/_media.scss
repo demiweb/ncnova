@@ -585,7 +585,7 @@
       order: 2;
       transform: none;
       margin-top: auto;
-      padding-bottom: vw(40px);
+      padding-bottom: vw(117px);
 
       .txt {
         p {
@@ -634,7 +634,7 @@
       order: 1;
       position: static;
       width: 100%;
-      height: vw(200px);
+      height: vw(117px);
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -838,15 +838,17 @@
     padding-top: vw(80px);
     padding-bottom: vw(40px);
   }
+
   .section-cont {
     //80px
     padding-top: calc(var(--headerheight) + 20.5128vw);
     padding-bottom: vw(40px);
-    height: 100dvh;
+    height: 100vh;
     position: static;
     transition: all 0.3s ease-out;
 
   }
+
   .section-cont .section-bg {
     top: 0;
     height: 100%;
